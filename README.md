@@ -4,6 +4,14 @@ Parse [tomdoc][tomdoc] with JavaScript / CoffeeScript.
 
 ## Usage
 
+It's on [npm](https://www.npmjs.org/package/tomdoc)
+
+```
+npm install tomdoc
+```
+
+It only has one method, `parse`, that takes no options.
+
 ```coffee
 TomDoc = require 'tomdoc'
 
