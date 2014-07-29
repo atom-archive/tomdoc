@@ -19,11 +19,8 @@ module.exports =
       return line if _.isEmpty(_.str.strip(line))
       md = line.match(/^(\s*)/)
       if md then md[1].length else null
-
     spaces = _.compact(spaces)
-
     space = _.min(spaces) || 0
-
     _.map lines, (line) ->
       if _.isEmpty(line)
         _.str.strip(line)
