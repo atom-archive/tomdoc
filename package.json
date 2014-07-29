@@ -25,7 +25,9 @@
   },
   "homepage": "http://atom.github.io/tomdoc",
   "dependencies": {
-    "argparse": "~0.1"
+    "argparse": "~0.1",
+    "underscore": ">= 0.1.0",
+    "underscore.string": ">= 0.1.0"
   },
   "devDependencies": {
     "jasmine-focused": "1.x",
@@ -33,6 +35,7 @@
     "grunt-cli": "~0.1.8",
     "grunt": "~0.4.1",
     "grunt-shell": "~0.2.2",
-    "grunt-coffeelint": "0.0.6"
+    "grunt-coffeelint": "0.0.6",
+    "rimraf": "~2.1"
   }
 }
