@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "A TomDoc parser",
   "main": "./lib/tomdoc.js",
-  "bin": {
-    "tomdoc": "./bin/tomdoc"
-  },
   "scripts": {
     "test": "grunt test",
     "prepublish": "grunt clean lint coffee"
@@ -25,7 +22,6 @@
   },
   "homepage": "http://atom.github.io/tomdoc",
   "dependencies": {
-    "argparse": "~0.1",
     "underscore": ">= 0.1.0",
     "underscore.string": ">= 0.1.0"
   },
