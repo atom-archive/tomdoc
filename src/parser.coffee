@@ -60,10 +60,13 @@ parseDescription = (section) ->
 parseExamples = (section, sections) ->
   examples = []
   section = _.str.strip(section.replace(/Examples/, ''))
-  examples.push(section) unless _.isEmpty(section)
-  while _.first(sections)
+  examples.push(section) unless _.isEmpty(section.trim())
+  while _.first(sections) and not /^\s*(Signature|Returns)/i.test(sections[0])
     lines = sections.shift().split("\n")
-    examples.push(deindent(lines).join("\n"))
+    section = deindent(lines).join("\n")
+    if section.trim()
+      examples.push(section)
+
   examples
 
 parseReturns = (section) ->

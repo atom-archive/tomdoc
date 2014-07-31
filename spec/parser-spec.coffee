@@ -57,6 +57,52 @@ describe "parser", ->
         execution and revert any changes performed up to the abortion.
       """
 
+    it "parses doc string with examples", ->
+      str = """
+        Public: Batch multiple operations as a single undo/redo step.
+
+        fn - A {Function} to call inside the transaction.
+
+        Examples
+
+          someFunction (options) ->
+            console.log('do stuff', options)
+          # => true
+
+          someFunction()
+          # => null
+
+        Returns a {Bool}
+        Returns null when no function defined
+      """
+      doc = parse(str)
+
+      expect(doc.summary).toBe 'Batch multiple operations as a single undo/redo step.'
+      expect(doc.status).toBe 'Public'
+      expect(doc.examples).toEqual ["""
+        someFunction (options) ->
+          console.log('do stuff', options)
+        # => true
+      """, """
+        someFunction()
+        # => null
+      """]
+
+      console.log doc.examples
+
+      expect(doc.arguments).toEqual [
+        name: 'fn'
+        description: 'A {Function} to call inside the transaction.'
+        type: 'Function'
+      ]
+      expect(doc.returnValue).toEqual [{
+        type: 'Bool'
+        description: 'Returns a {Bool}'
+      },{
+        type: null
+        description: 'Returns null when no function defined'
+      }]
+
   describe "with different visibilities", ->
     it "parses a public visibility", ->
       doc = parse("Public: Batch multiple operations as a single undo/redo step.")
