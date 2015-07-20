@@ -2,6 +2,8 @@
 
 Parse [tomdoc][tomdoc] with JavaScript / CoffeeScript.
 
+**This library is no longer maintained.**
+
 ## Usage
 
 It's on [npm](https://www.npmjs.org/package/tomdoc)
